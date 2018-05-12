@@ -12,7 +12,6 @@
     "author": "Julian Hainzlschmid",
     "license": "ISC",
     "dependencies": {
-
         "selenium-webdriver": "^3.5.0"
     },
     "devDependencies": {
