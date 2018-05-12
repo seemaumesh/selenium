@@ -9,8 +9,8 @@
         "WebDriver",
         "Example"
     ],
-    "author": "Julian Hainzlschmid",
-    "license": "ISC",
+    "author": "seema",
+
     "dependencies": {
         "selenium-webdriver": "^3.5.0"
     },
