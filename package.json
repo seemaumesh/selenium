@@ -10,14 +10,16 @@
         "Example"
     ],
     "author": "seema",
-
     "dependencies": {
+        "chromedriver": "^2.40.0",
+        "npm": "^6.2.0",
         "selenium-webdriver": "^3.5.0"
     },
     "devDependencies": {
         "jasmine": "^3.1.0",
         "jasmine-async-suite": "0.0.8",
         "jasmine-reporters": "^2.3.1",
-        "jasmine-spec-reporter": "^4.2.1"
+        "jasmine-spec-reporter": "^4.2.1",
+        "webdriver-manager": "^12.1.0"
     }
 }

@@ -1,0 +1,26 @@
+Set Up
+1 Linux box set up in AWS/EC2 resource
+2 select instance to connect to an instance (details of a machine) which has the ip address
+3 copy the ssh-i from the connect screen
+2 You have set up a docker (set up env with LInux OS) by connecting to that instance/comntainer
+3 Search for terminal and then copy the ssh-i link into terminal as a command
+4 The command will execute a public key priv key handshake, it means, authentication
+5 Start the docker by running command line” docker- compose up -d”
+Note: -d is to enable background running of commands, in the front we can work on different things
+this will set up the grid which has hub and nodes
+
+Code function
+1 In EC2 check the ip address 
+2 In the script create webdriver that uses the ipaddress (13.236.194.226) of a machine and port (4444),to recognise where selenium server or hub is 
+sitting in the env
+3 copy the ipaddress in code to define the selenium server location hardcoded in JSON file or .config file. In this case new ipaddress 
+is issued by aws
+4 define the browser name
+5 once chrome is launched get google.com by typing the link
+6 Find an element by selecting inspect on that page or F12 
+7 enter wait timing for 1000 secs
+8 make sure === is used to make sure that you know what you are doing and what value you need to be fetched back
+Note: if == is used system will use the command fr compare
+9 In the code tell the driver to quit and end the program
+10 In the command area in the bottom run Jas script by running command “node script name.js”
+
