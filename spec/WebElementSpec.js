@@ -11,26 +11,28 @@
 
 // describe('WebElement test', function() {
 //     var driver;
-//     beforeAll(
-//         function() {
-//             driver = new Builder().usingServer('http://localhost:4444/selenium-server')
-//                 .withCapabilities({
-//                     'browserName': 'chrome'
-//                 }).build();
-//             jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
+//     beforeEach(async function() {
+//         //this.timeout(60000)
+//         try {
+//             driver = await new Builder().forBrowser('chrome').build();
+//             await driver.manage().window().setSize(1600, 900)
+//         } catch (ex) {
+//             console.log(ex.stack)
 //         }
-//     );
 
-//     afterAll(function() {
-//         jasmineAsync.uninstall();
-//     });
+//     })
+
+//     afterEach(async function() {
+//         //this.timeout(60000)
+//         await driver.quit()
+//     })
 
 //     it('should be on correct page', function(done) {
 
 //         driver.get('http://www.google.com/ncr');
 //         driver.findElement(By.name('q')).sendKeys('webdriver');
 //         driver.findElement(By.name('btnG')).click();
-//         driver.wait(until.titleIs('webdriver - Google Search'), 1000);
+
 //         driver.quit();
 //         done();
 //     });

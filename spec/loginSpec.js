@@ -8,31 +8,45 @@ function timeout() {
         setTimeout(resolve, 9000);
     });
 }
-describe('User Authentication', function() {
+describe('login', function() {
     var driver;
-    beforeAll(
-        function() {
-            driver = new Builder().usingServer('http://localhost:4444/selenium-server')
-                .withCapabilities({
-                    'browserName': 'chrome'
-                }).build();
-            jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
+    beforeEach(async function(done) {
+        //this.timeout(60000)
+        jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
+        try {
+            driver = await new Builder().forBrowser('chrome').build();
+            await driver.manage().window().setSize(1600, 900)
+            console.log("login")
+            done();
+        } catch (ex) {
+            console.log(ex.stack)
         }
-    );
-    afterAll(function() {
-        //driver.end();
-        // jasmineAsync.uninstall();
-    });
-    it('User can sign in', function() {
+
+    })
+
+
+    afterAll(async function() {
+        //this.timeout(60000)
+        //
+        // if (drvier && driver.getSession())
+        //     await driver.quit()
+
+    })
+
+    it('User can sign in', function(done) {
         driver.get('http://travel.agileway.net');
         driver.findElement(By.name('username')).sendKeys('agileway');
         driver.findElement(By.name('password')).sendKeys('testwise');
         driver.findElement(By.name('commit')).click();
         driver.wait(function() {
-            return driver.getTitle().then(function(title) {
-                expect(title).toBe("Agile Trvel");
+            return driver.findElement(By.id('flash_notice')).getText().then(async function(text) {
+                expect(text).toBe("Signed in!");
+                //driver.findElement(By.linkText('logout')).click();
+                await driver.close();
                 done();
             });
+
         });
+
     });
 });
